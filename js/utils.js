@@ -4,6 +4,7 @@ function getEmptyCell() {
     var emptyCell = []
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[0].length; j++) {
+            if (i === gGame.firstClickCoords.i && j === gGame.firstClickCoords.j) continue
             if (!gBoard[i][j].isMine) emptyCell.push({i, j}) 
         }
     }
@@ -40,6 +41,21 @@ function expandShown(cellCoords) {
             if (!gBoard[i][j].isShown) {
                 gBoard[i][j].isShown = true
                 gGame.shownCount++
+            }
+        }
+    }
+}
+
+function hideNegs(cellCoords) {
+    for (var i = cellCoords.i - 1; i <= cellCoords.i + 1; i++) {
+        if (i < 0 || i >= gBoard.length) continue
+
+        for (var j = cellCoords.j - 1; j <= cellCoords.j + 1; j++) {
+            if (j < 0 || j >= gBoard[0].length) continue
+
+            if (!gBoard[i][j].isShown) {
+                gBoard[i][j].isShown = false
+                gGame.shownCount--
             }
         }
     }

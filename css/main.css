@@ -46,10 +46,13 @@ table {
 .timer {
     position: relative;
     top: -21px;
-    right: 324px;
+    right: 282px;
     width: fit-content;
     display: inline;
+    background-color: black;
+    color: red;
 }
+
 
 .set-level-btns {
     text-align: center;
@@ -62,13 +65,55 @@ table {
     display: block;
     font-size:medium;
     font-weight: 700;
+    background-color: rgb(191, 191, 191);
+    transition: 0.2s;
 }
+
+.set-level-btn:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.lives {
+    position: relative;
+    top: -21px;
+    right: 178px;
+    width: fit-content;
+    display: inline;
+    background-color: black;
+    color: red;
+}
+
+
 
 .cell:hover {
     cursor: pointer;
+    filter: brightness(70%);
 }
 
+
 .hidden {
-    /* opacity: 0; */
     font-size: 0px; 
 }
+
+.hint-activated {
+    filter: contrast(200%);
+    filter: brightness(0.5);
+}
+
+
+.hidden-object {
+    opacity: 0;
+}
+
+
+.hints {
+    position: relative;
+    top: -21px;
+    right: -133px;
+    width: fit-content;
+    display: inline;
+    background-color: black;
+    color: red;
+}
+

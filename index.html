@@ -15,11 +15,17 @@
             <div>
                 <button class="emoji-restarter" onclick="initGame()">😀</button>
                 <div class="timer">0.000</div>
+                <div class="lives">❤️ ❤️ ❤️</div>
+                <div class="hints">
+                    <span onclick="useHint(this)">💡</span>
+                    <span onclick="useHint(this)"> 💡</span>
+                    <span onclick="useHint(this)"> 💡</span>
+                </div>
             </div>
             <div class="set-level-btns">
-                <button onclick="setLevel(0)">Easy</button>
-                <button onclick="setLevel(1)">Medium</button>
-                <button onclick="setLevel(2)">Hard</button>
+                <button class="set-level-btn" onclick="setLevel(0)">Easy</button>
+                <button class="set-level-btn" onclick="setLevel(1)">Medium</button>
+                <button class="set-level-btn" onclick="setLevel(2)">Hard</button>
             </div>
             
 
