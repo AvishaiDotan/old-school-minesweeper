@@ -1,0 +1,146 @@
+body {
+    text-align: center;
+}
+
+.game-container {
+    background-color: rgb(191, 191, 191);
+    width: 750px;
+    height: 480px;
+    margin: auto;
+    margin-block-start: 25px;
+    border: 5px outset;
+}
+
+.main-btns-container {
+    width: 727px;
+    height: 35px;
+    margin: auto;
+    margin-block-start: 11.5px;
+    border: inset;
+}
+
+.emoji-restarter {
+    background-color: rgb(191, 191, 191);
+    margin: auto;
+    display: block;
+    margin-block-start: 5px;
+    width: 34px;
+    text-align: center;
+    border-radius: 0px;
+    border: outset;
+}
+
+table {
+    border-spacing: 0;
+    margin: auto;
+    border: 3px inset;
+    margin-block-start: 50px;
+}
+
+.outset {
+    width: 20px;
+    height: 20px;
+    border: 2px outset;
+}
+
+.timer {
+    position: absolute;
+    top: 49px;
+    right: 728px;
+    width: 81px;
+    letter-spacing: 2px;
+    background-color: black;
+    height: 22px;
+    color: red;
+    font-weight: 700;
+}
+
+
+.timer:hover {
+    cursor: default;
+}
+
+
+.set-level-btns {
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    right: 386px;
+    top: 91px;
+}
+
+.set-level-btns button {
+    border: 2px outset;
+    background-color: #737373;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    display: block;
+    font-size:medium;
+    font-weight: 700;
+    background-color: rgb(191, 191, 191);
+    transition: 0.2s;
+}
+
+.set-level-btn:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.lives-container {
+    width: 100px;
+    letter-spacing: 2px;
+    background-color: black;
+    color: red;
+    font-weight: 700;
+    position: absolute;
+    top: 49px;
+    right: 563px;
+    height: 22px;
+}
+
+.lives-container span:hover {
+    cursor: default;
+}
+
+.cell:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.hidden {
+    font-size: 0px; 
+}
+
+.hint-activated {
+    filter: contrast(200%);
+    filter: brightness(0.5);
+}
+
+.hidden-by-brightness {
+    filter: brightness(0%);
+}
+
+.hints-container {
+    width: 100px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    position: absolute;
+    top: 49px;
+    right: 226px;
+    height: 22px;
+    background-color: black;
+}
+
+.hints span:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+.emoji-restarter:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
