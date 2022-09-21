@@ -44,19 +44,34 @@ table {
 }
 
 .timer {
-    position: relative;
-    top: -21px;
-    right: 282px;
-    width: fit-content;
-    display: inline;
+    position: absolute;
+    top: 49px;
+    right: 728px;
+    width: 81px;
+    letter-spacing: 2px;
     background-color: black;
+    height: 22px;
     color: red;
+    font-weight: 700;
+}
+
+
+.timer:hover {
+    cursor: default;
 }
 
 
 .set-level-btns {
     text-align: center;
     margin: auto;
+    position: absolute;
+    right: 386px;
+    top: 91px;
+}
+
+.set-level-btns button {
+    border: 2px outset;
+    background-color: #737373;
 }
 
 .cell {
@@ -74,23 +89,26 @@ table {
     filter: brightness(70%);
 }
 
-.lives {
-    position: relative;
-    top: -21px;
-    right: 178px;
-    width: fit-content;
-    display: inline;
+.lives-container {
+    width: 100px;
+    letter-spacing: 2px;
     background-color: black;
     color: red;
+    font-weight: 700;
+    position: absolute;
+    top: 49px;
+    right: 563px;
+    height: 22px;
 }
 
-
+.lives-container span:hover {
+    cursor: default;
+}
 
 .cell:hover {
     cursor: pointer;
     filter: brightness(70%);
 }
-
 
 .hidden {
     font-size: 0px; 
@@ -101,19 +119,28 @@ table {
     filter: brightness(0.5);
 }
 
-
-.hidden-object {
-    opacity: 0;
+.hidden-by-brightness {
+    filter: brightness(0%);
 }
 
-
-.hints {
-    position: relative;
-    top: -21px;
-    right: -133px;
-    width: fit-content;
-    display: inline;
+.hints-container {
+    width: 100px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    position: absolute;
+    top: 49px;
+    right: 226px;
+    height: 22px;
     background-color: black;
-    color: red;
+}
+
+.hints span:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+.emoji-restarter:hover {
+    filter: brightness(70%);
+    cursor: pointer;
 }
 
