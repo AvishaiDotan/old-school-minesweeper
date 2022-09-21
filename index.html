@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old School Mine-Sweeper</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="initGame()" oncontextmenu="return false">
+    <div class="game-container">
+        <div class="main-btns-container">
+            <div>
+                <button class="emoji-restarter" onclick="initGame()">😀</button>
+                <div class="timer">0.000</div>
+            </div>
+            <div class="set-level-btns">
+                <button onclick="setLevel(0)">Easy</button>
+                <button onclick="setLevel(1)">Medium</button>
+                <button onclick="setLevel(2)">Hard</button>
+            </div>
+            
+
+        </div>
+        
+        <table>
+            <tbody class="cells-container">
+                
+            </tbody>
+        </table>
+    </div>
+    
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

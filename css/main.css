@@ -1,0 +1,74 @@
+body {
+    text-align: center;
+}
+
+.game-container {
+    background-color: rgb(191, 191, 191);
+    width: 750px;
+    height: 480px;
+    margin: auto;
+    margin-block-start: 25px;
+    border: 5px outset;
+}
+
+.main-btns-container {
+    width: 727px;
+    height: 35px;
+    margin: auto;
+    margin-block-start: 11.5px;
+    border: inset;
+}
+
+.emoji-restarter {
+    background-color: rgb(191, 191, 191);
+    margin: auto;
+    display: block;
+    margin-block-start: 5px;
+    width: 34px;
+    text-align: center;
+    border-radius: 0px;
+    border: outset;
+}
+
+table {
+    border-spacing: 0;
+    margin: auto;
+    border: 3px inset;
+    margin-block-start: 50px;
+}
+
+.outset {
+    width: 20px;
+    height: 20px;
+    border: 2px outset;
+}
+
+.timer {
+    position: relative;
+    top: -21px;
+    right: 324px;
+    width: fit-content;
+    display: inline;
+}
+
+.set-level-btns {
+    text-align: center;
+    margin: auto;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    display: block;
+    font-size:medium;
+    font-weight: 700;
+}
+
+.cell:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    /* opacity: 0; */
+    font-size: 0px; 
+}
