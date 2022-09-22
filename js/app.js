@@ -77,10 +77,11 @@ function createCell() {
        }   
 }
 
-function addMines() {
+function addMines(mineCoords) {
     for (var i = 0; i < gLevel.MINES; i++) {
-        const mineCoord = getEmptyCell()
-        gGame.data.minesCoords.push(mineCoord)
+        // at default it takes values from mine getEmptyCell Function
+        mineCoords = getEmptyCell()
+        gGame.data.minesCoords.push(mineCoords)
     }
 }
 

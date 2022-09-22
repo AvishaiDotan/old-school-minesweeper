@@ -22,6 +22,9 @@ function resetGameVars() {
             isOn: false,
             isGameEnd: false,
             isHintActive: false,
+            isSafeClickActive: false,
+            isCreateModeActive: false,
+            isCreateModeGameActive: false,
         },
         
         counters: {
@@ -37,4 +40,16 @@ function resetGameVars() {
         data: {minesCoords: [],},
     } 
     gRemovedLives = 0
+}
+
+function resetBoard() {
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard[0].length; j++) {
+            gBoard[i][j] = createCell()
+        }
+    }
+}
+
+function resetMineCoords() {
+    gGame.data.minesCoords = []
 }

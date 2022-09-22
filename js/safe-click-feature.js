@@ -3,15 +3,14 @@ const SAFE_CLICKS_AMOUNT = 3
 var gRemainingSafeClicks;
 
 var gIsSafeBtnReady = false
-var gIsSafeClickOn = false
 
 function initSafeClick(elBtn) {
 
     if (!gGame.state.isOn || gGame.state.isGameEnd) return
-    if (gIsSafeClickOn) return
+    if (gGame.state.isSafeClickActive) return
 
     if (!gIsSafeBtnReady) {
-        firstInit(elBtn)
+        firstSafeClickInit(elBtn)
         return
     }
 
@@ -28,20 +27,20 @@ function initSafeClick(elBtn) {
 }
 
 function playSafeClick() {
-    gIsSafeClickOn = true
+    gGame.state.isSafeClickActive = true
 
     const safeCellCoords = getEmptyCell()
     gBoard[safeCellCoords.i][safeCellCoords.j].isShown = true
     renderBoard()
 
     setTimeout(() => {
-        gIsSafeClickOn = false
+        gGame.state.isSafeClickActive = false
         gBoard[safeCellCoords.i][safeCellCoords.j].isShown = false
         renderBoard()
     }, 1000)
 }
 
-function firstInit(elBtn) {
+function firstSafeClickInit(elBtn) {
     // Model
     gRemainingSafeClicks = SAFE_CLICKS_AMOUNT
     gIsSafeBtnReady = true
@@ -53,7 +52,7 @@ function firstInit(elBtn) {
 function resetSafeClick() {
     //Model
     gIsSafeBtnReady = false
-    gIsSafeClickOn = false
+    gGame.state.isSafeClickActive = false
     gRemainingSafeClicks = 0
 
     // DOM

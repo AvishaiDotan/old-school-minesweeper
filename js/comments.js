@@ -30,3 +30,13 @@
     }
     elTable.innerHTML = strHTML
 } */
+
+function printBoard() {
+    for (var i = 0; i < gBoard.length; i++) {
+        var str = ''
+        for (var j = 0; j < gBoard[0].length; j++) {
+            str += gBoard[i][j].isMine + ' '
+        }
+        console.log(str);
+    }
+}
