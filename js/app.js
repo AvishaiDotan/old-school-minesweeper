@@ -2,7 +2,6 @@
 
 // TODO: COMPRESS all negs function into one function
 // TODO: COMPRESS all render function into one function
-// Refractor "renderBoard()"
 // TODO: refractor isEmpty To negsCellCount
 // Check LOCAL STORAGE FUCNTION
 // delete negs.js
@@ -51,6 +50,7 @@ function initGame() {
     renderBoard()
     renderLives()
     renderHints()
+    renderMinesCounter()
 }
 
 
@@ -77,10 +77,9 @@ function createCell() {
        }   
 }
 
-function addMines(mineCoords) {
+function addMines() {
     for (var i = 0; i < gLevel.MINES; i++) {
-        // at default it takes values from mine getEmptyCell Function
-        mineCoords = getEmptyCell()
+        const mineCoords = getEmptyCell()
         gGame.data.minesCoords.push(mineCoords)
     }
 }

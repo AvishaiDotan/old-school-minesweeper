@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    background-color: rgb(53, 53, 53);
 }
 
 .game-container {
@@ -30,6 +31,12 @@ body {
     border: outset;
 }
 
+.left-mines-counter {
+    position: absolute;
+    top: 48px;
+    right: 650px;
+}
+
 table {
     border-spacing: 0;
     margin: auto;
@@ -46,7 +53,7 @@ table {
 .timer {
     position: absolute;
     top: 49px;
-    right: 728px;
+    right: 1180px;
     width: 81px;
     letter-spacing: 2px;
     background-color: black;
@@ -65,8 +72,16 @@ table {
     text-align: center;
     margin: auto;
     position: absolute;
-    right: 386px;
+    right: 890px;
     top: 91px;
+}
+
+.down-menu-btns {
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    right: 600px;
+    top: 450px;
 }
 
 .set-level-btns button {
@@ -97,7 +112,7 @@ table {
     font-weight: 700;
     position: absolute;
     top: 49px;
-    right: 563px;
+    right: 1000px;
     height: 22px;
 }
 
@@ -129,7 +144,7 @@ table {
     font-weight: 700;
     position: absolute;
     top: 49px;
-    right: 226px;
+    right: 750px;
     height: 22px;
     background-color: black;
 }

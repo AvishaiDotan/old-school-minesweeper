@@ -40,5 +40,8 @@ function removeOneLife(cellCoords) {
     gBoard[cellCoords.i][cellCoords.j].isMine = true
     gBoard[cellCoords.i][cellCoords.j].isFlagged = true
     gGame.counters.markedCount++
+
+    addOpenMine()
+    renderMinesCounter()
 }
 

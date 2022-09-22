@@ -25,6 +25,7 @@ function resetGameVars() {
             isSafeClickActive: false,
             isCreateModeActive: false,
             isCreateModeGameActive: false,
+            is7boomModeActive: false,
         },
         
         counters: {

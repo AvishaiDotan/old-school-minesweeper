@@ -4,12 +4,14 @@ var minesAmount = 0
 
 function initCreateMode(elBtn) {
 
+    // Reset The Creator
     if (gGame.state.isOn) {
         resetGameVars()
         minesAmount = 0
         resetTimer()
         clearTimerInterval()
     } 
+
     // Model
     gGame.state.isCreateModeActive = !gGame.state.isCreateModeActive
     gGame.state.isCreateModeGameActive = true

@@ -14,6 +14,7 @@
         <div class="main-btns-container">
             <div>
                 <button class="emoji-restarter" onclick="initGame()">😀</button>
+                <button class="left-mines-counter">99</button>
                 <div class="timer">0.000</div>
                 <div class="lives-container">
 
@@ -33,14 +34,11 @@
             <tbody class="cells-container"> 
             </tbody>
         </table>
-        <div>
+        <div class="down-menu-btns">
             <button onclick="addLives()">Add Lives</button>
-        </div>
-        <div>
             <button class="safe-click-button" onclick="initSafeClick(this)">Add Safe-Clicks</button>
-        </div>
-        <div>
             <button class="create-mode-button" onclick="initCreateMode(this)">Create Mode: Off</button>
+            <button class="create-mode-button" onclick="renderBackgoundColor(this)">Dark Mode</button>
         </div>
     </div>
     
@@ -48,8 +46,8 @@
     <script src="js/comments.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/timer.js"></script>
-    <script src="js/negs.js"></script>
     <script src="js/reset.js"></script>
+    <script src="js/left-mines-counter.js"></script>
     <script src="js/lives-feature.js"></script>
     <script src="js/hint-feature.js"></script>
     <script src="js/safe-click-feature.js"></script>

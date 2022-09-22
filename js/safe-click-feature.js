@@ -30,6 +30,7 @@ function playSafeClick() {
     gGame.state.isSafeClickActive = true
 
     const safeCellCoords = getEmptyCell()
+    if (!safeCellCoords) return
     gBoard[safeCellCoords.i][safeCellCoords.j].isShown = true
     renderBoard()
 

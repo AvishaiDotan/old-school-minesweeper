@@ -1,4 +1,5 @@
 'use strict'
+var gIsBlackMode = false
 
 function getEmptyCell() {
     var emptyCell = []
@@ -95,4 +96,20 @@ function saveBestResultInStorage() {
     } else if (currTime < localStorage.getItem(levelStr)) {
         localStorage.setItem(levelStr, currTime)
     }
+}
+
+function renderBackgoundColor(elBtn){
+
+    var elGameContainer = document.querySelector('.game-container')
+
+    gIsBlackMode = !gIsBlackMode
+
+    var bgColor = gIsBlackMode ? 'black' : 'rgb(53, 53, 53)'
+    var gameColor = gIsBlackMode ?  'rgb(130, 130, 130)' : 'rgb(191, 191, 191)'
+    var btnStr = gIsBlackMode ? 'Default Mode' : 'Dark Mode'
+    
+    document.body.style.backgroundColor = bgColor
+    elGameContainer.style.backgroundColor = gameColor
+    elBtn.innerText = btnStr
+    
 }

@@ -71,13 +71,15 @@ function markedCell(i, j) {
     }
 
     // limit addition of marked cells
-    if (gGame.counters.markedCount < gLevel.MINES) {  
+    if (gGame.counters.markedCount < gLevel.MINES) { 
+        addOpenMine()
         cell.isMarked = true
         cell.isShown = true
         gGame.counters.markedCount++
     }
 
     renderBoard()
+    renderMinesCounter()
 }
 
 function unMarkCell(cell) {
@@ -85,8 +87,10 @@ function unMarkCell(cell) {
     cell.isMarked = false
     cell.isShown = false
     gGame.counters.markedCount--
+    removeOpenMine()
     // Update DOM
     renderBoard()
+    renderMinesCounter()
 }
 
 // TODO: BETTER SOLUTION
