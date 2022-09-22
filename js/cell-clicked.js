@@ -1,10 +1,10 @@
 'use strict'
 
+
 // Open cells and Mark cells Functions
 function cellClicked(ev, elCell, i, j) {
     setFirstClickToValid({i, j})
     if (gGame.state.isGameEnd) return
-
     if (ev.which === 1) openCell(i, j)
     else if (ev.which === 3) markedCell(i, j)
     checkGameOver()     
@@ -21,7 +21,7 @@ function openCell(i, j) {
     const cell = gBoard[i][j]
 
     if (cell.isMarked) return
-    
+
     if (gLives && cell.isMine){
         removeOneLife({i, j})
     } else if (!gLives && cell.isMine) {
@@ -29,18 +29,17 @@ function openCell(i, j) {
     }     
 
     // Model
-    if (!isMineNeg({i, j}) && !cell.isMine) expandShown({i, j})
+    if (cell.minesAroundCount === 0)  fullExpand({i,j})
+    if (cell.minesAroundCount === 0 && !cell.isMine) expandShown({i, j})
     else {
         gBoard[i][j].isShown = true
         gGame.counters.shownCount++
     }
-
     // DOM
     renderBoard()
 }
 
 function markedCell(i, j) {
-
     // must started by left key (open cell)
     if (!gGame.state.isOn) return
     

@@ -110,7 +110,7 @@ table {
     filter: brightness(70%);
 }
 
-.hidden {
+.hidden-by-font-size {
     font-size: 0px; 
 }
 

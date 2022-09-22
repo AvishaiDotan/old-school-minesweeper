@@ -2,6 +2,7 @@
 
 
 function setLevel(newLevel) {
+    resetSafeClick()
     gRemovedLives = 0
     gLevel = LEVELS[newLevel]
     clearTimerInterval()

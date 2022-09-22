@@ -5,7 +5,7 @@ function getEmptyCell() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[0].length; j++) {
             if (i === gFirstClickCoords.i && j === gFirstClickCoords.j) continue
-            if (!gBoard[i][j].isMine) emptyCell.push({i, j}) 
+            if (!gBoard[i][j].isMine && !gBoard[i][j].isShown) emptyCell.push({i, j})  //!gBoard[i][j].isShown
         }
     }
     return emptyCell[getRandomIntInclusive(0, emptyCell.length - 1)]

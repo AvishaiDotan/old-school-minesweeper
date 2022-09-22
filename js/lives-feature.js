@@ -1,7 +1,7 @@
 'use strict'
 
 var gRemovedLives = 0
-
+var gLives;
 
 function addLives() {
     if (gGame.state.isGameEnd) return
@@ -36,8 +36,9 @@ function removeOneLife(cellCoords) {
     
     // Model
     gLives--
-    gBoard[cellCoords.i][cellCoords.j].isMine = false
-    gBoard[cellCoords.i][cellCoords.j].isMarked = true
+    // gBoard[cellCoords.i][cellCoords.j].isMarked = true
+    gBoard[cellCoords.i][cellCoords.j].isMine = true
+    gBoard[cellCoords.i][cellCoords.j].isFlagged = true
     gGame.counters.markedCount++
 }
 
