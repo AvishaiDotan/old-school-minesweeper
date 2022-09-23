@@ -1,6 +1,6 @@
 'use strict'
 
-
+// TODO: Arrange in logical order
 function setLevel(newLevel) {
     resetSafeClick()
     gRemovedLives = 0
@@ -16,6 +16,7 @@ function setLevel(newLevel) {
     initGame()
 }
 
+// Reset but also sets the main gGame global object
 function resetGameVars() {
     gGame = {
         state: {
@@ -25,7 +26,6 @@ function resetGameVars() {
             isSafeClickActive: false,
             isCreateModeActive: false,
             isCreateModeGameActive: false,
-            is7boomModeActive: false,
         },
         
         counters: {
@@ -43,6 +43,8 @@ function resetGameVars() {
     gRemovedLives = 0
 }
 
+// Function that resets gBoard to default values
+// LOOK FOR TODO in next citation
 function resetBoard() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[0].length; j++) {
@@ -53,4 +55,11 @@ function resetBoard() {
 
 function resetMineCoords() {
     gGame.data.minesCoords = []
+}
+
+function resetFeatures() {
+    resetSafeClick()
+    resetCreatorMode()
+    resetHints()
+    resetMinesCounter()
 }

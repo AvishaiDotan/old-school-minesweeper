@@ -41,7 +41,7 @@ table {
     border-spacing: 0;
     margin: auto;
     border: 3px inset;
-    margin-block-start: 50px;
+    margin-block-start: 20px;
 }
 
 .outset {
@@ -71,23 +71,38 @@ table {
 .set-level-btns {
     text-align: center;
     margin: auto;
-    position: absolute;
-    right: 890px;
-    top: 91px;
+    margin-block-start: 30px;
 }
 
 .down-menu-btns {
     text-align: center;
     margin: auto;
-    position: absolute;
-    right: 600px;
-    top: 450px;
+    margin-block-start: 20px;
+}
+
+.down-menu-btns button {
+    border: 2px outset;
+    background-color: #737373;
+}
+
+.down-menu-btns button:hover {
+    border: 2px outset;
+    background-color: #737373;
+    cursor: pointer;
+    filter: brightness(70%);
 }
 
 .set-level-btns button {
     border: 2px outset;
     background-color: #737373;
 }
+.set-level-btns button:hover {
+    border: 2px outset;
+    background-color: #737373;
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
 
 .cell {
     width: 20px;
@@ -97,11 +112,7 @@ table {
     font-weight: 700;
     background-color: rgb(191, 191, 191);
     transition: 0.2s;
-}
-
-.set-level-btn:hover {
-    cursor: pointer;
-    filter: brightness(70%);
+    cursor: default;
 }
 
 .lives-container {
@@ -120,7 +131,7 @@ table {
     cursor: default;
 }
 
-.cell:hover {
+.cells-hover:hover {
     cursor: pointer;
     filter: brightness(70%);
 }
@@ -149,7 +160,7 @@ table {
     background-color: black;
 }
 
-.hints span:hover {
+.hints-container span:hover {
     filter: brightness(70%);
     cursor: pointer;
 }

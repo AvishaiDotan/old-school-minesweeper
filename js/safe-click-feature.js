@@ -1,20 +1,34 @@
 'use strict'
-const SAFE_CLICKS_AMOUNT = 3
-var gRemainingSafeClicks;
 
+//Globals
+const SAFE_CLICKS_AMOUNT = 3
+
+// Counter for left safe clicks
+var gRemainingSafeClicks;
 var gIsSafeBtnReady = false
 
 function initSafeClick(elBtn) {
 
-    if (!gGame.state.isOn || gGame.state.isGameEnd) return
+    // Safe click isnt enabled in start and in end of game => PREVENT CRASH
+    // TODO: change Hover btn style
+    if (!gGame.state.isOn || gGame.state.isGameEnd) {
+        playSound(GAME_SOUNDS.MAIN_ERROR)
+        return
+    }
+
     if (gGame.state.isSafeClickActive) return
 
+    // Special first init
     if (!gIsSafeBtnReady) {
         firstSafeClickInit(elBtn)
         return
     }
 
-    if (!gRemainingSafeClicks) return
+
+    if (!gRemainingSafeClicks) {
+        playSound(GAME_SOUNDS.MAIN_ERROR)
+        // return
+    } 
 
     // Model
     gRemainingSafeClicks--
@@ -30,9 +44,14 @@ function playSafeClick() {
     gGame.state.isSafeClickActive = true
 
     const safeCellCoords = getEmptyCell()
-    if (!safeCellCoords) return
-    gBoard[safeCellCoords.i][safeCellCoords.j].isShown = true
-    renderBoard()
+
+    // Play error sound when there are no safe clicks coords => show that cell
+    if (!safeCellCoords) {
+        playSound(GAME_SOUNDS.MAIN_ERROR)
+    } else {
+        gBoard[safeCellCoords.i][safeCellCoords.j].isShown = true
+        renderBoard()
+    }
 
     setTimeout(() => {
         gGame.state.isSafeClickActive = false

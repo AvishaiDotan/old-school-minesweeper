@@ -1,18 +1,5 @@
 'use strict'
 
-// TODO: COMPRESS all negs function into one function
-// TODO: COMPRESS all render function into one function
-// TODO: refractor isEmpty To negsCellCount
-// Check LOCAL STORAGE FUCNTION
-// delete negs.js
-
-/* float: right;
-overflow: visible;
-position: relative;
-z-index: 1000;
-height: 177px;
-width: 100%; */
-
 // Global Consts
 const MINE = '💣'
 const EMPTY = ''
@@ -38,15 +25,20 @@ var gFirstClickCoords = {i: 0, j: 0}
 
 // Main Functions
 function initGame() { 
-    // Model Functions
-    if (gGame?.intervals.timerInterval) clearTimerInterval() //Check If can remove ?
-    renderSmileEmoji(EMOJI_STATES.success)
+
+    playSound(GAME_SOUNDS.RESET)
+    // Model Init
+    if (gGame?.intervals.timerInterval) clearTimerInterval()
+    resetTimer()
     resetGameVars()
+
     gBoard = buildBoard()
     addMines()
     setMinesNegsCount()
+    resetFeatures() 
 
-    // DOM
+    // DOM Init
+    renderSmileEmoji(EMOJI_STATES.success)
     renderBoard()
     renderLives()
     renderHints()
@@ -73,7 +65,7 @@ function createCell() {
         isShown: false,
         isMine: false,
         isMarked: false,
-        isFlagged: false,  
+        isFlagged: false, // State When isMine and also isShown but player didn't lost  
        }   
 }
 
@@ -107,7 +99,7 @@ function setMinesNegsCount() {
 }
 
 
-// DOM Functions
+// DOM Function
 function renderBoard() {
 
     const elTable = document.querySelector('.cells-container')
@@ -130,7 +122,7 @@ function renderBoard() {
                 color = getColor(cellStr)
             } 
 
-            if (!cell.isShown) cellClass += ' hidden-by-font-size outset'          
+            if (!cell.isShown) cellClass += ' hidden-by-font-size outset cells-hover'          
             strHTML += `<td><span class="${cellClass}" style="color: ${color}"onmousedown="cellClicked(event ,this, ${i}, ${j})">${cellStr}</span></td>`
         }
         strHTML += `</tr>`

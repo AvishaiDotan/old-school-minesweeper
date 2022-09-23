@@ -1,17 +1,26 @@
 'use strict'
 
-var opendMines = 0;
+// Hold the count for opened mines that aren't end the game (as for lives functions)
+var openedMinesCounter = 0;
 
 function renderMinesCounter() {
     var elDiv = document.querySelector('.left-mines-counter')
-    var leftMines = ((gLevel.MINES - opendMines) >= 0) ? gLevel.MINES - opendMines : 0
+
+    // Handle Exception when counter gets to minus levels set it to 0
+    // => happens because of lives functions
+    var leftMines = ((gLevel.MINES - openedMinesCounter) >= 0) ? gLevel.MINES - openedMinesCounter : 0
     elDiv.innerText = leftMines
 }
 
-function addOpenMine() {
-    opendMines++
+
+function removeMineFromCounter() {
+    openedMinesCounter++
 }
 
-function removeOpenMine() {
-    opendMines--
+function addMineFromCounter() {
+    openedMinesCounter--
+}
+
+function resetMinesCounter() {
+    openedMinesCounter = 0
 }
