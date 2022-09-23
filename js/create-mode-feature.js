@@ -1,15 +1,18 @@
 'use strict'
 
-var minesAmount = 0
+// Hold current amount of mines
+var gMinesCount = 0
+
 
 function initCreateMode(elBtn) {
 
-    // Reset The Creator
-    if (gGame.state.isOn) {
-        resetGameVars()
-        minesAmount = 0
-        resetTimer()
+    // If game already began and creator mode activated => reset the game
+    if (gGame.state.isOn) {      
+        // DOM
         clearTimerInterval()
+        resetTimer()
+        resetGameVars()
+        resetCreatorMode()
     } 
 
     // Model
@@ -17,45 +20,63 @@ function initCreateMode(elBtn) {
     gGame.state.isCreateModeGameActive = true
 
     // DOM
-     var btnStr = (gGame.state.isCreateModeActive) ? 'Create Mode: On' : 'Create Mode: Off'
+    var btnStr = (gGame.state.isCreateModeActive) ? 'Start Play' : 'Create Mode: ON'
     elBtn.innerText = btnStr
 
-    // Model
+    // Reset the board and the mine coords data array if creator mode started
     if (gGame.state.isCreateModeActive) {
         resetMineCoords()
-        resetBoard()
-    } 
 
+        // TODO: Need to check if gBoard = buildBoard() also works
+        resetBoard()
+    }
+
+    // DOM
     renderBoard()
 }
 
 function makeMine(elMouseBtn, elCell, i, j) {
-    
-    if (minesAmount >= gLevel.MINES) return
-    minesAmount++
-    if (elMouseBtn !== 1) return
 
-        // Model
+    // Return if right mouse
+    if (elMouseBtn !== 1) {
+        playSound(MAIN_ERROR_SOUND)
+        return
+    }
+
+    // add mines is possible only as the level default mine sum permits
+    if (gMinesCount >= gLevel.MINES) {
+        playSound(MAIN_ERROR_SOUND)
+        return
+    }
+    gMinesCount++
+    
+    // Model
     gBoard[i][j] = {
         minesAroundCount: 0,
         isShown: false,
         isMine: true,
         isMarked: false,
-        isFlagged: false,  
-    } 
+        isFlagged: false,
+    }
 
-    gGame.data.minesCoords.push({i, j})
+    gGame.data.minesCoords.push({ i, j })
 
     // DOM
     renderMine(elCell)
-    
 }
 
 function renderMine(elCell) {
     elCell.innerText = MINE
-    elCell.classList.remove('hidden-by-font-size')    
-    elCell.classList.remove('outset') 
+    elCell.classList.remove('hidden-by-font-size')
+    elCell.classList.remove('outset')
 }
+
+function resetCreatorMode() {
+    // Model
+    gMinesCount = 0
+    gGame.state.isCreateModeGameActive = false
+}
+
 
 
 

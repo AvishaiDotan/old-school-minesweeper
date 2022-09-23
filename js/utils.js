@@ -5,6 +5,7 @@ function getEmptyCell() {
     var emptyCell = []
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[0].length; j++) {
+            // Dont Place Mine
             if (i === gFirstClickCoords.i && j === gFirstClickCoords.j) continue
             if (!gBoard[i][j].isMine && !gBoard[i][j].isShown) emptyCell.push({i, j})  //!gBoard[i][j].isShown
         }
