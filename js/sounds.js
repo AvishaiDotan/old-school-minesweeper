@@ -1,6 +1,6 @@
 
 'use strict'
-sounds/click.wav
+
 const GAME_SOUNDS = {
     BACKGROUND: new Audio(`sounds/background-sound.wav`),
     MAIN_ERROR: new Audio(`sounds//error-sound-effect.mp3`),
