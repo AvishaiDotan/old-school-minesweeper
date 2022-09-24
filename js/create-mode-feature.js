@@ -2,18 +2,27 @@
 
 // Hold current amount of mines
 var gMinesCount = 0
-
+var maxCreatedMines;
 
 function initCreateMode(elBtn) {
-
+    
     // If game already began and creator mode activated => reset the game
     if (gGame.state.isOn) {      
         // DOM
         clearTimerInterval()
         resetElTimer()
         resetGameVars()
+        globalReset(gLevel)
         resetCreatorMode()
     } 
+
+    // TODO: FIX THIS BUG
+    // if player didnt fill up the board with mines as full as gLevel.MINES => ELSE IT BUG
+    if (gGame.state.isCreateModeActive && gGame.state.isCreateModeGameActive
+        && !gGame.state.isOn && gMinesCount < gLevel.MINES) {
+            playSound(GAME_SOUNDS.MAIN_ERROR)
+            return
+        }
 
     // Model
     gGame.state.isCreateModeActive = !gGame.state.isCreateModeActive
@@ -26,7 +35,7 @@ function initCreateMode(elBtn) {
     // Reset the board and the mine coords data array if creator mode started
     if (gGame.state.isCreateModeActive) {
         resetMineCoords()
-
+        
         // TODO: Need to check if gBoard = buildBoard() also works
         resetBoard()
     }
@@ -36,16 +45,16 @@ function initCreateMode(elBtn) {
 }
 
 function makeMine(elMouseBtn, elCell, i, j) {
-
+    renderMinesCounter()
     // Return if right mouse
     if (elMouseBtn !== 1) {
-        playSound(MAIN_ERROR)
+        playSound(GAME_SOUNDS.MAIN_ERROR)
         return
     }
 
     // add mines is possible only as the level default mine sum permits
     if (gMinesCount >= gLevel.MINES) {
-        playSound(MAIN_ERROR)
+        playSound(GAME_SOUNDS.MAIN_ERROR)
         return
     }
     gMinesCount++
