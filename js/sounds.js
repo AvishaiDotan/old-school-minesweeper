@@ -3,7 +3,7 @@
 
 const GAME_SOUNDS = {
     BACKGROUND: new Audio(`./sounds/background-sound.wav`),
-    MAIN_ERROR: new Audio(`./sounds//error-sound-effect.mp3`),
+    MAIN_ERROR: new Audio(`./sounds/error-sound-effect.mp3`),
     WIN: new Audio(`./sounds/winning-sound-effect.mp3`),
     CLICK: new Audio(`./sounds/click.wav`),
     LOSE_SOUND: new Audio(`./sounds/lose_minesweeper.wav`),
@@ -23,5 +23,21 @@ function stopBackgroundSound() {
 
 function playSound(type) {
     type.play()
+}
+
+function soundToggle(elBtn){
+
+    // Model
+    gIsMuted = !gIsMuted
+
+    // DOM
+    var btnText = gIsMuted ? 'Sound On' : 'Mute'
+    elBtn.innerText = btnText
+
+    var volume = gIsMuted ? 0 : 1;
+
+    for (var sound in GAME_SOUNDS) {
+        GAME_SOUNDS[sound].volume = volume
+    }
 }
 

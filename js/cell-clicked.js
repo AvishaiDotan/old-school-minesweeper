@@ -11,7 +11,6 @@ function cellClicked(ev, elCell, i, j) {
     }
 
     // Denied when game end
-    // TODO: CANCEL HOVER STYLE
     if (gGame.state.isGameEnd) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
         return
@@ -57,6 +56,12 @@ function openCell(i, j) {
         return
     }
 
+    // Set Mega Hint
+    if (gIsMegaHintModeActive) {
+        setMegaHintCoord({i, j})
+        return
+    }
+
     const cell = gBoard[i][j]
     if (cell.isMarked) {
         playSound(GAME_SOUNDS.MAIN_ERROR_SOUND)
@@ -81,6 +86,7 @@ function openCell(i, j) {
 
     // DOM
     renderBoard()
+    playSound(GAME_SOUNDS.CLICK)
 }
 
 function markCell(i, j) {
