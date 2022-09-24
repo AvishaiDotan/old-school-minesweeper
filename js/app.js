@@ -11,12 +11,6 @@ const LEVELS = [
     {SIZE: 12,MINES: 32, id: 2} 
 ]
 
-const EMOJI_STATES = {
-    success: 1,
-    won: 2, 
-    lost: 0,
-}
-
 // Global Vars
 var gGame
 var gBoard
@@ -25,8 +19,6 @@ var gFirstClickCoords = {i: 0, j: 0}
 
 // Main Functions
 function initGame() { 
-
-    playSound(GAME_SOUNDS.RESET)
     // Model Init
     if (gGame?.intervals.timerInterval) clearTimerInterval()
     resetTimer()

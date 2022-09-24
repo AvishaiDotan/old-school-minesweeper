@@ -1,13 +1,23 @@
 'use strict'
 var gIsBlackMode = false
+var gIsMuted = false
+
+const EMOJI_STATES = {
+    success: 1,
+    won: 2, 
+    lost: 0,
+}
 
 function getEmptyCell() {
     var emptyCell = []
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[0].length; j++) {
-            // Dont Place Mine
-            if (i === gFirstClickCoords.i && j === gFirstClickCoords.j) continue
-            if (!gBoard[i][j].isMine && !gBoard[i][j].isShown) emptyCell.push({i, j})  //!gBoard[i][j].isShown
+
+            // Dont Place Mine in the first cell and in his first negs
+            if ((i >= gFirstClickCoords.i - 1 && i <= gFirstClickCoords.i + 1) &&
+                (j >= gFirstClickCoords.j - 1 && j <= gFirstClickCoords.j + 1)) continue 
+                
+            if (!gBoard[i][j].isMine && !gBoard[i][j].isShown) emptyCell.push({i, j})
         }
     }
     return emptyCell[getRandomIntInclusive(0, emptyCell.length - 1)]
@@ -114,3 +124,4 @@ function renderBackgoundColor(elBtn){
     elBtn.innerText = btnStr
     
 }
+

@@ -14,6 +14,7 @@ function setLevel(newLevel) {
     gHintsAmount = 3
     renderHints()
     initGame()
+    playSound(GAME_SOUNDS.RESET)
 }
 
 // Reset but also sets the main gGame global object
