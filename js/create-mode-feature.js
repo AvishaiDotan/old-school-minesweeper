@@ -10,7 +10,7 @@ function initCreateMode(elBtn) {
     if (gGame.state.isOn) {      
         // DOM
         clearTimerInterval()
-        resetTimer()
+        resetElTimer()
         resetGameVars()
         resetCreatorMode()
     } 
@@ -39,13 +39,13 @@ function makeMine(elMouseBtn, elCell, i, j) {
 
     // Return if right mouse
     if (elMouseBtn !== 1) {
-        playSound(MAIN_ERROR_SOUND)
+        playSound(MAIN_ERROR)
         return
     }
 
     // add mines is possible only as the level default mine sum permits
     if (gMinesCount >= gLevel.MINES) {
-        playSound(MAIN_ERROR_SOUND)
+        playSound(MAIN_ERROR)
         return
     }
     gMinesCount++

@@ -5,7 +5,7 @@ const MINE = '💣'
 const EMPTY = ''
 const FLAG = '🚩'
 
-const LEVELS = [
+const GAME_LEVELS = [
     {SIZE: 4,MINES: 2, id: 0},
     {SIZE: 8,MINES: 14, id: 1},
     {SIZE: 12,MINES: 32, id: 2} 
@@ -14,27 +14,13 @@ const LEVELS = [
 // Global Vars
 var gGame
 var gBoard
-var gLevel = LEVELS[0]
+var gLevel = GAME_LEVELS[0]
+
 var gFirstClickCoords = {i: 0, j: 0}
 
 // Main Functions
 function initGame() { 
-    // Model Init
-    if (gGame?.intervals.timerInterval) clearTimerInterval()
-    resetTimer()
-    resetGameVars()
-
-    gBoard = buildBoard()
-    addMines()
-    setMinesNegsCount()
-    resetFeatures() 
-
-    // DOM Init
-    renderSmileEmoji(EMOJI_STATES.success)
-    renderBoard()
-    renderLives()
-    renderHints()
-    renderMinesCounter()
+    globalReset()
 }
 
 
@@ -63,7 +49,10 @@ function createCell() {
 
 function addMines() {
     for (var i = 0; i < gLevel.MINES; i++) {
-        const mineCoords = getEmptyCell()
+        var mineCoords = getEmptyCell()
+        while (isDuplicate(mineCoords)) {
+            mineCoords = getEmptyCell()
+        }
         gGame.data.minesCoords.push(mineCoords)
     }
 }
@@ -121,6 +110,8 @@ function renderBoard() {
     }
     elTable.innerHTML = strHTML
 }
+
+
 
 
 

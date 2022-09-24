@@ -4,6 +4,14 @@
 function cellClicked(ev, elCell, i, j) {
 
     /* Handle Exceptions */
+
+    // run PlayHint and return from function
+    // Prevent undesired open cells
+    if (gGame.state.isHintActive) {
+        playHint({i, j})
+        return
+    }
+
     // Activate make mine and return when in creation mode
     if (gGame.state.isCreateModeActive) {
         makeMine(ev.which, elCell, i, j)
@@ -15,11 +23,17 @@ function cellClicked(ev, elCell, i, j) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
         return
     } 
-    
+
+    // Set Mega Hint
+    if (gIsMegaHintModeActive) {
+        setMegaHintCoord({i, j})
+        return
+    }
+
+
     // Wait until clearTimeout
     if (gGame.state.isSafeClickActive) return
     
-
     // Prevent from "setFirstClickToValid()" to render the board when in creation mode
     if (!gGame.state.isOn && !gGame.state.isCreateModeGameActive) {
         setFirstClickToValid({i, j})
@@ -38,33 +52,18 @@ function cellClicked(ev, elCell, i, j) {
 }
 
 function openCell(i, j) {
-
     // Play sound only if the game just started
     if (!gGame.state.isOn) playBackgroundSound()
+
     // Set "gGame.state.isOn" to "true" only when player pressed left mouse key 
     gGame.state.isOn = true
-    
 
-   
     // start interval if isn't one
-    if (!gGame.intervals.timerInterval) startTimer()
-
-    // run PlayHint and return from function
-    // Prevent undesired open cells
-    if (gGame.state.isHintActive) {
-        playHint({i, j})
-        return
-    }
-
-    // Set Mega Hint
-    if (gIsMegaHintModeActive) {
-        setMegaHintCoord({i, j})
-        return
-    }
+    if (!gTimerInterval) startTimer()
 
     const cell = gBoard[i][j]
     if (cell.isMarked) {
-        playSound(GAME_SOUNDS.MAIN_ERROR_SOUND)
+        playSound(GAME_SOUNDS.MAIN_ERROR)
         return
     }
 
@@ -146,10 +145,13 @@ function unMarkCell(cell) {
     renderMinesCounter()
 }
 
-// TODO: BETTER SOLUTION => GAME IS RENDERED TWICE!
+// TODO: Look at first-click-valid.js
 function setFirstClickToValid(coords) {
     gFirstClickCoords = {i: coords.i, j: coords.j}
-    initGame()
+    gBoard = buildBoard()
+    resetMineCoords()
+    addMines()
+    setMinesNegsCount()
 }
 
 function fullExpand(cellCoords) {

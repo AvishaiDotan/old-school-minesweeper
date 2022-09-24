@@ -12,9 +12,9 @@ function addLives() {
 
     var amount;
     // Model => amount based on level
-    if (gLevel === LEVELS[0]) amount = 1
-    if (gLevel === LEVELS[1]) amount = 3
-    if (gLevel === LEVELS[2]) amount = 4
+    if (gLevel === GAME_LEVELS[0]) amount = 1
+    if (gLevel === GAME_LEVELS[1]) amount = 3
+    if (gLevel === GAME_LEVELS[2]) amount = 4
     gLives = amount
 
     //DOM
@@ -26,19 +26,20 @@ function renderLives() {
 
     var strHTML = ''
     for (var i = 0; i < gLives; i++) {
-        strHTML += `<span data-i="${i}">❤️</span>`
+        strHTML += `<span>❤️</span>`
     }
 
     elLives.innerHTML = strHTML
+    elLives.classList.remove('btn-hover')
 }
 
 function removeOneLife(cellCoords) {
     playSound(GAME_SOUNDS.FLAG)
     gRemovedLives++
 
-    const hearts = document.querySelectorAll('.lives-container span')
+    const lives = document.querySelectorAll('.lives-container span')
     for (var i = 0; i < gRemovedLives; i++) {
-        hearts[i].classList.add('hidden-by-brightness')
+        lives[i].classList.add('hidden-by-brightness')
     }
     
     // Model
@@ -54,4 +55,14 @@ function removeOneLife(cellCoords) {
     removeMineFromCounter()
     renderMinesCounter()
 }
+
+function resetLives() {
+    gRemovedLives = 0
+    gLives = 0
+
+    const elLives = document.querySelector('.lives-container')
+    elLives.innerText = 'Add lives'
+}
+
+
 

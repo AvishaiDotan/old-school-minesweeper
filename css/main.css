@@ -1,3 +1,4 @@
+/* Body */
 body {
     text-align: center;
     background-color: rgb(53, 53, 53);
@@ -6,12 +7,14 @@ body {
 .game-container {
     background-color: rgb(191, 191, 191);
     width: 750px;
-    height: 480px;
+    height: 600px;
     margin: auto;
     margin-block-start: 25px;
     border: 5px outset;
+    position: relative;
 }
 
+/* Headline Features */
 .main-btns-container {
     width: 727px;
     height: 35px;
@@ -31,17 +34,42 @@ body {
     border: outset;
 }
 
-.left-mines-counter {
-    position: absolute;
-    top: 48px;
-    right: 650px;
+.emoji-restarter:hover {
+    filter: brightness(70%);
+    cursor: pointer;
 }
 
+
+.left-mines-counter {
+    width: 81px;
+    letter-spacing: 2px;
+    background-color: black;
+    height: 35px;
+    color: red;
+    font-weight: 700;
+    position: absolute;
+    top: 13px;
+    right: 12px;
+    border: inset;
+}
+
+/* Cells */
 table {
     border-spacing: 0;
     margin: auto;
     border: 3px inset;
     margin-block-start: 20px;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    display: block;
+    font-size:medium;
+    font-weight: 700;
+    background-color: rgb(191, 191, 191);
+    transition: 0.2s;
+    cursor: default;
 }
 
 .outset {
@@ -50,16 +78,28 @@ table {
     border: 2px outset;
 }
 
+.cells-hover:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+
+/* Timer */
 .timer {
     position: absolute;
-    top: 49px;
-    right: 1180px;
+    top: 13px;
+    right: 654px;
     width: 81px;
     letter-spacing: 2px;
     background-color: black;
-    height: 22px;
+    /* height: 22px; */
     color: red;
     font-weight: 700;
+    height: 31px;
+    border: inset 2px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 31px; 
 }
 
 
@@ -67,29 +107,11 @@ table {
     cursor: default;
 }
 
-
+/* Levels */
 .set-level-btns {
     text-align: center;
     margin: auto;
     margin-block-start: 30px;
-}
-
-.down-menu-btns {
-    text-align: center;
-    margin: auto;
-    margin-block-start: 20px;
-}
-
-.down-menu-btns button {
-    border: 2px outset;
-    background-color: #737373;
-}
-
-.down-menu-btns button:hover {
-    border: 2px outset;
-    background-color: #737373;
-    cursor: pointer;
-    filter: brightness(70%);
 }
 
 .set-level-btns button {
@@ -104,69 +126,42 @@ table {
 }
 
 
-.cell {
-    width: 20px;
-    height: 20px;
-    display: block;
-    font-size:medium;
-    font-weight: 700;
-    background-color: rgb(191, 191, 191);
-    transition: 0.2s;
-    cursor: default;
+/* Global down menu btns Style */
+.down-menu-btns {
+    text-align: center;
+    margin: auto;
+    margin-block-start: 20px;
 }
 
-.lives-container {
-    width: 100px;
-    letter-spacing: 2px;
-    background-color: black;
-    color: red;
-    font-weight: 700;
-    position: absolute;
-    top: 49px;
-    right: 1000px;
-    height: 22px;
+.down-menu-btns button {
+    border: 2px outset;
+    background-color: #737373;
 }
 
+/* Lives Feature */
 .lives-container span:hover {
     cursor: default;
 }
 
-.cells-hover:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-}
-
-.hidden-by-font-size {
-    font-size: 0px; 
-}
-
+/* Hint Feature */
 .hint-activated {
     filter: contrast(200%);
     filter: brightness(0.5);
+}
+
+/* Hide Features */
+.hidden-by-font-size {
+    font-size: 0px; 
 }
 
 .hidden-by-brightness {
     filter: brightness(0%);
 }
 
-.hints-container {
-    width: 100px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    position: absolute;
-    top: 49px;
-    right: 750px;
-    height: 22px;
-    background-color: black;
-}
-
-.hints-container span:hover {
+/* hover features */
+.btn-hover:hover {
     filter: brightness(70%);
     cursor: pointer;
 }
 
-.emoji-restarter:hover {
-    filter: brightness(70%);
-    cursor: pointer;
-}
 

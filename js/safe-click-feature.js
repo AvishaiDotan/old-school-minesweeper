@@ -27,7 +27,7 @@ function initSafeClick(elBtn) {
 
     if (!gRemainingSafeClicks) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
-        // return
+        return
     } 
 
     // Model
@@ -48,6 +48,8 @@ function playSafeClick() {
     // Play error sound when there are no safe clicks coords => show that cell
     if (!safeCellCoords) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
+        gGame.state.isSafeClickActive = false
+        return
     } else {
         gBoard[safeCellCoords.i][safeCellCoords.j].isShown = true
         renderBoard()

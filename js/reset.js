@@ -1,20 +1,27 @@
 'use strict'
 
-// TODO: Arrange in logical order
-function setLevel(newLevel) {
-    resetSafeClick()
-    gRemovedLives = 0
-    gLevel = LEVELS[newLevel]
+function globalReset(currLevel = GAME_LEVELS[0]) {
+    // Define Level
+    gLevel = currLevel
+
+    // Reset Model
+    resetGameVars()
+    gBoard = buildBoard()
+    addMines()
+    setMinesNegsCount()
     clearTimerInterval()
-    resetTimer()
 
-    gLives = 0
-    renderLives()
+    // DOM
+    renderBoard()
 
-    gHintsAmount = 3
+    resetFeatures() 
+    
+    // Reset DOM
+    resetElTimer()
+    renderSmileEmoji(EMOJI_STATES.success)
+
     renderHints()
-    initGame()
-    playSound(GAME_SOUNDS.RESET)
+    renderMinesCounter()
 }
 
 // Reset but also sets the main gGame global object
@@ -34,14 +41,9 @@ function resetGameVars() {
             markedCount: 0,
             secsPassed: 0,
         },
-
-        intervals: {
-            timerInterval: undefined,
-        },
         
         data: {minesCoords: [],},
     } 
-    gRemovedLives = 0
 }
 
 // Function that resets gBoard to default values
@@ -63,4 +65,15 @@ function resetFeatures() {
     resetCreatorMode()
     resetHints()
     resetMinesCounter()
+    resetLives()
+}
+
+function setLevel(newLevel) {
+    playSound(GAME_SOUNDS.RESET)
+    globalReset(newLevel)
+}
+
+function emojiReset() {
+    playSound(GAME_SOUNDS.RESET)
+    globalReset(gLevel)
 }

@@ -1,8 +1,10 @@
 'use strict'
 
+var gTimerInterval = null
+
 function startTimer() {
     const currTime = Date.now()
-    gGame.intervals.timerInterval = setInterval(renderTimer, 31, currTime)
+    gTimerInterval = setInterval(renderTimer, 31, currTime)
 }
 
 function renderTimer(currTime) {
@@ -13,7 +15,7 @@ function renderTimer(currTime) {
     elTimer.innerText = gGame.counters.secsPassed
 }
 
-function resetTimer() {
+function resetElTimer() {
     // DOM
     const elTimer = document.querySelector('.timer')
     elTimer.innerText = '0.000'
@@ -21,6 +23,6 @@ function resetTimer() {
 
 function clearTimerInterval() {
     // Model
-    clearInterval(gGame.intervals.timerInterval)
-    gGame.intervals.timerInterval = 0
+    clearInterval(gTimerInterval)
+    gTimerInterval = 0
 }

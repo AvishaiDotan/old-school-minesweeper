@@ -7,7 +7,7 @@ var gMegaHintCoords = []
 function initMegaHint(elBtn) {
 
     // 
-    if (gIsMegaHintModeActive || gIsMegaHintUsed) {
+    if (gIsMegaHintModeActive || gIsMegaHintUsed || !gGame.state.isOn) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
         return
     }
@@ -41,7 +41,15 @@ function showMegaHint() {
     // Dom
     for (var i = gMegaHintCoords[0].i; i <= gMegaHintCoords[1].i; i++) {
         for (var j = gMegaHintCoords[0].j; j <= gMegaHintCoords[1].j; j++) {
-            gBoard[i][j].isShown = true
+            if (!gBoard[i][j].isShown) {
+                gBoard[i][j].isShown = true
+
+                // To distinguish between shown and mega hinted
+                gBoard[i][j].isMegaHinted = true
+            }
+            
+            
+           
         }
     }
     renderBoard()
@@ -52,7 +60,10 @@ function showMegaHint() {
 function resetMegaHint() {
     for (var i = gMegaHintCoords[0].i; i <= gMegaHintCoords[1].i; i++) {
         for (var j = gMegaHintCoords[0].j; j <= gMegaHintCoords[1].j; j++) {
-            gBoard[i][j].isShown = false
+            if (gBoard[i][j].isMegaHinted) {
+                gBoard[i][j].isShown = false
+                delete gBoard[i][j].isMegaHinted
+            }
         }
     }
     renderBoard()

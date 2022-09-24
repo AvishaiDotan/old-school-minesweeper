@@ -9,11 +9,12 @@ function renderHints() {
 
     var strHTML = ''
     for (var i = 0; i < gHintsAmount; i++) {
-        strHTML += `<span onclick="useHint(this)">💡</span>`
+        strHTML += `<span class="btn-hover" onclick="useHint(this)">💡</span>`
     }
 
     elHints.innerHTML = strHTML
 }
+
 
 function useHint(elHint) {
     // Handle exception's
@@ -21,7 +22,7 @@ function useHint(elHint) {
         gGame.state.isHintActive || gGame.state.isGameEnd) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
         return
-    } 
+    }
     
     
     // MODEL
@@ -30,6 +31,7 @@ function useHint(elHint) {
 
     // DOM
     elHint.classList.add('hint-activated')
+    elHint.classList.remove('btn-hover')
    
     // Reset hint state after 1000 ms
     setTimeout(() => {

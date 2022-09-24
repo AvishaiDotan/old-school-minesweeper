@@ -125,3 +125,11 @@ function renderBackgoundColor(elBtn){
     
 }
 
+function isDuplicate(checkCoords) {
+    for (var i = 0; i < gGame.data.minesCoords.length; i++) {
+        var comparedCoords = gGame.data.minesCoords[i];
+        if ((checkCoords.i === comparedCoords.i) && (checkCoords.j === comparedCoords.j)) return true
+    }
+    return false
+}
+

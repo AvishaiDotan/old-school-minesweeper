@@ -13,20 +13,13 @@
     <div class="game-container">
         <div class="main-btns-container">
             <div>
-                <button class="emoji-restarter" onclick="initGame()">😀</button>
+                <button class="emoji-restarter" onclick="emojiReset()">😀</button>
                 <button class="left-mines-counter">99</button>
                 <div class="timer">0.000</div>
-                <div class="lives-container">
-
-                </div>
-                <div class="hints-container">
-
-                </div>
-
             <div class="set-level-btns">
-                <button class="set-level-btn" onclick="setLevel(0)">Easy</button>
-                <button class="set-level-btn" onclick="setLevel(1)">Medium</button>
-                <button class="set-level-btn" onclick="setLevel(2)">Hard</button>
+                <button class="set-level-btn" onclick="setLevel(GAME_LEVELS[0])">Easy</button>
+                <button class="set-level-btn" onclick="setLevel(GAME_LEVELS[1])">Medium</button>
+                <button class="set-level-btn" onclick="setLevel(GAME_LEVELS[2])">Hard</button>
             </div>
         </div>
         
@@ -35,13 +28,18 @@
             </tbody>
         </table>
         <div class="down-menu-btns">
-            <button onclick="addLives()">Add Lives</button>
-            <button class="safe-click-button" onclick="initSafeClick(this)">Add Safe-Clicks</button>
-            <button class="create-mode-button" onclick="initCreateMode(this)">Create Mode: ON</button>
-            <button class="dark-mode-button" onclick="renderBackgoundColor(this)">Dark Mode</button>
-            <button class="mega-hint-button" onclick="initMegaHint(this)">Mega Hint</button>
-            <button onclick="soundToggle(this)">Mute</button>
+            <button class="safe-click-button btn-hover" onclick="initSafeClick(this)">Add Safe-Clicks</button>
+            <button class="mega-hint-button btn-hover" onclick="initMegaHint(this)">Mega Hint</button>
+            <button class="hints-container" onclick=""></button>
         </div>
+        <div class="down-menu-btns down-menu-hover">
+            <button class="lives-container btn-hover" onclick="addLives()">Add Lives</button>
+            <button class="create-mode-button btn-hover" onclick="initCreateMode(this)">Create Mode: ON</button>
+            <button class="dark-mode-button btn-hover" onclick="renderBackgoundColor(this)">Dark Mode</button>
+            <button class="btn-hover" onclick="soundToggle(this)">Mute</button>
+            <!-- <button class="exterminator btn-hover" onclick="runExterminator()">Exterminator</button> -->
+        </div>
+
     </div>
     
     <script src="js/utils.js"></script>
@@ -49,9 +47,11 @@
     <script src="js/timer.js"></script>
     <script src="js/reset.js"></script>
     <script src="js/left-mines-counter.js"></script>
+    <script src="js/first-click-valid.js"></script>
     <script src="js/lives-feature.js"></script>
     <script src="js/hint-feature.js"></script>
     <script src="js/safe-click-feature.js"></script>
+    <script src="js/exterminator-feature.js"></script>
     <script src="js/create-mode-feature.js"></script>
     <script src="js/mega-hint-feature.js"></script>
     <script src="js/undo-feature.js"></script>
