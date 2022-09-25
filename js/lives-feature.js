@@ -6,7 +6,7 @@ var gLives;
 
 function addLives() {
     if (gGame.state.isGameEnd) {
-        playSound(GAME_SOUNDS.MAIN_ERORR)
+        playSound(GAME_SOUNDS.MAIN_ERROR)
         return
     } 
 
@@ -54,6 +54,8 @@ function removeOneLife(cellCoords) {
     // Handle also mines counter
     removeMineFromCounter()
     renderMinesCounter()
+    renderSmileEmoji(EMOJI_STATES.lost)
+    setTimeout(renderSmileEmoji, 500, EMOJI_STATES.success)
 }
 
 function resetLives() {

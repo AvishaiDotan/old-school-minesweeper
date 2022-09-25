@@ -109,7 +109,7 @@ function saveBestResultInStorage() {
     }
 }
 
-function renderBackgoundColor(elBtn){
+function renderBackgroundColor(elBtn){
 
     var elGameContainer = document.querySelector('.game-container')
 

@@ -5,8 +5,7 @@ var gIsMegaHintModeActive = false
 var gMegaHintCoords = []
 
 function initMegaHint(elBtn) {
-
-    // 
+    
     if (gIsMegaHintModeActive || gIsMegaHintUsed || !gGame.state.isOn) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
         return
@@ -47,9 +46,6 @@ function showMegaHint() {
                 // To distinguish between shown and mega hinted
                 gBoard[i][j].isMegaHinted = true
             }
-            
-            
-           
         }
     }
     renderBoard()

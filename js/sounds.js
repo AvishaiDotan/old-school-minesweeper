@@ -26,7 +26,6 @@ function playSound(type) {
 }
 
 function soundToggle(elBtn){
-
     // Model
     gIsMuted = !gIsMuted
 

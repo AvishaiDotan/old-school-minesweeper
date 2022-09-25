@@ -1,6 +1,6 @@
 'use strict'
 
-//Globals
+// Globals
 const SAFE_CLICKS_AMOUNT = 3
 
 // Counter for left safe clicks
@@ -9,13 +9,12 @@ var gIsSafeBtnReady = false
 
 function initSafeClick(elBtn) {
 
-    // Safe click isnt enabled in start and in end of game => PREVENT CRASH
+    // Safe click is not enabled in start and in end of game => PREVENT CRASH
     // TODO: change Hover btn style
     if (!gGame.state.isOn || gGame.state.isGameEnd) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
         return
     }
-
     if (gGame.state.isSafeClickActive) return
 
     // Special first init
@@ -24,7 +23,6 @@ function initSafeClick(elBtn) {
         return
     }
 
-
     if (!gRemainingSafeClicks) {
         playSound(GAME_SOUNDS.MAIN_ERROR)
         return
@@ -32,11 +30,9 @@ function initSafeClick(elBtn) {
 
     // Model
     gRemainingSafeClicks--
-
     // DOM
     elBtn.innerText = `You Have ${gRemainingSafeClicks} Left...${'🔎'.repeat(gRemainingSafeClicks)}`
-
-    // Functionlity
+    // Functionality
     if (gRemainingSafeClicks >= 0) playSafeClick()
 }
 
