@@ -9,10 +9,11 @@ function initCreateMode(elBtn) {
     // If game already began and creator mode activated => reset the game
     if (gGame.state.isOn) {      
         // DOM
+        globalReset(gLevel)
         clearTimerInterval()
         resetElTimer()
         resetGameVars()
-        globalReset(gLevel)
+        
         resetCreatorMode()
     } 
 
@@ -84,6 +85,11 @@ function resetCreatorMode() {
     // Model
     gMinesCount = 0
     gGame.state.isCreateModeGameActive = false
+    gGame.state.isCreateModeActive = false
+
+    const elBtn = document.querySelector('.create-mode-button')
+    elBtn.innerText = 'Create Mode: ON'
+
 }
 
 
