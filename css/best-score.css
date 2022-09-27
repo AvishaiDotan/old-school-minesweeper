@@ -1,0 +1,11 @@
+.best-score-container {
+    margin: auto;
+    margin-top: 20px;
+    width: 200px;
+    border: inset 2px;
+}
+
+.best-score {
+    font-weight: 700;
+}
+

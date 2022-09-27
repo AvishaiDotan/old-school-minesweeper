@@ -84,30 +84,7 @@ function renderSmileEmoji(state) {
     elEmoji.innerText = strHTML
 }
 
-function saveBestResultInStorage() {
-    const currTime = +gGame.counters.secsPassed
-    const currLevel = gLevel.id
 
-    var levelStr = ''
-    switch (currLevel) {
-        case 0:
-            levelStr = `easy`
-            break
-        case 1:
-            levelStr = `medium`
-            break
-        case 2:
-            levelStr = `hard`
-            break
-    }
-
-    if (!localStorage.getItem(levelStr)) {
-        localStorage.setItem(levelStr, currTime);
-
-    } else if (currTime < localStorage.getItem(levelStr)) {
-        localStorage.setItem(levelStr, currTime)
-    }
-}
 
 function renderBackgroundColor(elBtn){
 

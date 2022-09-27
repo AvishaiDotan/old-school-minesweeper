@@ -16,6 +16,7 @@ function checkWin() {
 
         // Local Storage
         saveBestResultInStorage()
+        renderBestResult()
         playSound(GAME_SOUNDS.WIN)
     }
 }

@@ -6,7 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Old School Mine-Sweeper</title>
+
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/best-score.css">
+    <link rel="stylesheet" href="css/top-container.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/select-level-btns.css">
+    <link rel="stylesheet" href="css/bottom-container.css">
+    <link rel="stylesheet" href="css/utils.css">
+
 </head>
 
 <body onload="initGame()" oncontextmenu="return false">
@@ -39,6 +47,9 @@
             <button class="btn-hover" onclick="soundToggle(this)">Mute</button>
             <!-- <button class="exterminator btn-hover" onclick="runExterminator()">Exterminator</button> -->
         </div>
+        <div class="best-score-container">
+            Best score: <span class="best-score">1.758</span>
+        </div>
 
     </div>
     
@@ -50,6 +61,7 @@
     <script src="js/first-click-valid.js"></script>
     <script src="js/lives-feature.js"></script>
     <script src="js/hint-feature.js"></script>
+    <script src="js/best-score-feature.js"></script>
     <script src="js/safe-click-feature.js"></script>
     <script src="js/exterminator-feature.js"></script>
     <script src="js/create-mode-feature.js"></script>
