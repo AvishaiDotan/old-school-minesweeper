@@ -1,0 +1,29 @@
+/* Cells */
+table {
+    border-spacing: 0;
+    margin: auto;
+    border: 3px inset;
+    margin-block-start: 20px;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    display: block;
+    font-size:medium;
+    font-weight: 700;
+    background-color: rgb(191, 191, 191);
+    transition: 0.2s;
+    cursor: default;
+}
+
+.outset {
+    width: 20px;
+    height: 20px;
+    border: 2px outset;
+}
+
+.cells-hover:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}

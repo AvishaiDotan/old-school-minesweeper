@@ -1,0 +1,63 @@
+/* Container */
+.main-btns-container {
+    width: 727px;
+    height: 35px;
+    margin: auto;
+    margin-block-start: 11.5px;
+    border: inset;
+}
+
+/* Emoji Restarter */
+.emoji-restarter {
+    background-color: rgb(191, 191, 191);
+    margin: auto;
+    display: block;
+    margin-block-start: 5px;
+    width: 34px;
+    text-align: center;
+    border-radius: 0px;
+    border: outset;
+}
+
+.emoji-restarter:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+
+/* Left Mines Counter */
+.left-mines-counter {
+    width: 81px;
+    letter-spacing: 2px;
+    background-color: black;
+    height: 35px;
+    color: red;
+    font-weight: 700;
+    position: absolute;
+    top: 13px;
+    right: 12px;
+    border: inset;
+}
+
+/* Timer */
+.timer {
+    position: absolute;
+    top: 13px;
+    right: 654px;
+    width: 81px;
+    letter-spacing: 2px;
+    background-color: black;
+    /* height: 22px; */
+    color: red;
+    font-weight: 700;
+    height: 31px;
+    border: inset 2px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 31px; 
+}
+
+
+.timer:hover {
+    cursor: default;
+}

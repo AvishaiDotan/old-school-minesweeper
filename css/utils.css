@@ -1,0 +1,14 @@
+/* Hide Features */
+.hidden-by-font-size {
+    font-size: 0px; 
+}
+
+.hidden-by-brightness {
+    filter: brightness(0%);
+}
+
+/* hover features */
+.btn-hover:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
