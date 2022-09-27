@@ -85,7 +85,6 @@ function renderSmileEmoji(state) {
 }
 
 
-
 function renderBackgroundColor(elBtn){
 
     var elGameContainer = document.querySelector('.game-container')
@@ -108,5 +107,11 @@ function isDuplicate(checkCoords) {
         if ((checkCoords.i === comparedCoords.i) && (checkCoords.j === comparedCoords.j)) return true
     }
     return false
+}
+
+function renderBottomMenuBtns() {
+    const elDiv = document.querySelector('.game-on-btns')
+    if (gGame.state.isOn) elDiv.style.opacity = 1
+    else elDiv.style.opacity = 0
 }
 

@@ -14,6 +14,7 @@ function globalReset(currLevel = GAME_LEVELS[0]) {
     // DOM
     renderBoard()
     renderBestResult()
+    renderBottomMenuBtns()
     
     resetFeatures() 
     

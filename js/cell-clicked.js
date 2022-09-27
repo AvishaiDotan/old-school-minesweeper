@@ -52,12 +52,16 @@ function cellClicked(ev, elCell, i, j) {
 }
 
 function openCell(i, j) {
+    
     // Play sound only if the game just started
     if (!gGame.state.isOn) playBackgroundSound()
 
     // Set "gGame.state.isOn" to "true" only when player pressed left mouse key 
     gGame.state.isOn = true
 
+    // display bottom btns
+    renderBottomMenuBtns()
+    
     // start interval if isn't one
     if (!gTimerInterval) startTimer()
 
