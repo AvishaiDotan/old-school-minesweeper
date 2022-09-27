@@ -111,7 +111,7 @@ function isDuplicate(checkCoords) {
 
 function renderBottomMenuBtns() {
     const elDiv = document.querySelector('.game-on-btns')
-    if (gGame.state.isOn) elDiv.style.opacity = 1
-    else elDiv.style.opacity = 0
+    if (gGame.state.isOn) elDiv.style.visibility = 'visible'
+    else elDiv.style.visibility = 'hidden'
 }
 
