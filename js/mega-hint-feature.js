@@ -50,10 +50,10 @@ function showMegaHint() {
     }
     renderBoard()
 
-    setTimeout(resetMegaHint, 2000)
+    setTimeout(hideMegaHint, 2000)
 }
 
-function resetMegaHint() {
+function hideMegaHint() {
     for (var i = gMegaHintCoords[0].i; i <= gMegaHintCoords[1].i; i++) {
         for (var j = gMegaHintCoords[0].j; j <= gMegaHintCoords[1].j; j++) {
             if (gBoard[i][j].isMegaHinted) {
@@ -75,5 +75,16 @@ function setMegaHintModeToUsed() {
     var elBtn = document.querySelector('.mega-hint-button')
     elBtn.innerText = 'Mega Hint: Used'
 }
+
+function resetMegaHint() {
+    var elBtn = document.querySelector('.mega-hint-button')
+    elBtn.innerText = 'Mega Hint'
+
+    gIsMegaHintUsed = false;
+    gIsMegaHintModeActive = false
+    gMegaHintCoords = []
+}
+
+
 
 

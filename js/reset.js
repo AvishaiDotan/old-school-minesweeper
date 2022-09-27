@@ -15,7 +15,7 @@ function globalReset(currLevel = GAME_LEVELS[0]) {
     renderBoard()
     renderBestResult()
     renderBottomMenuBtns()
-    
+
     resetFeatures() 
     
     // Reset DOM
@@ -66,6 +66,7 @@ function resetFeatures() {
     resetSafeClick()
     resetCreatorMode()
     resetHints()
+    resetMegaHint()
     resetMinesCounter()
     resetLives()
 }
